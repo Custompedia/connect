@@ -6,12 +6,15 @@ name = "custompedia-connect"
 compatibility_date = "2026-06-01"
 pages_build_output_dir = "public"
 
-# KV untuk rate limit per-IP (§7). Buat namespace lalu ganti `id` di bawah:
-#   npx wrangler kv namespace create RATE_LIMIT
-# Untuk dev lokal, wrangler menyimulasikan KV ini secara lokal.
-[[kv_namespaces]]
-binding = "RATE_LIMIT"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+# KV untuk rate limit per-IP (§7). NONAKTIF sampai namespace dibuat.
+# Kode fail-open bila binding RATE_LIMIT tidak ada (lib/ratelimit.js), jadi
+# halaman & endpoint tetap jalan tanpa KV (rate-limit dilewati sementara).
+# Untuk MENGAKTIFKAN:
+#   1) npx wrangler kv namespace create RATE_LIMIT
+#   2) uncomment blok di bawah & isi `id` hasil perintah di atas.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "REPLACE_WITH_KV_NAMESPACE_ID"
 
 # Catatan: SECRET (NOTION_TOKEN, RESEND_API_KEY, dll.) JANGAN ditaruh di sini.
 # Lokal: pakai file .dev.vars. Produksi: set di dashboard Pages > Settings >
