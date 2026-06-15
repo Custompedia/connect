@@ -1,10 +1,16 @@
-# Konfigurasi Cloudflare Pages (static + Functions).
-# Hanya folder `public/` yang disajikan publik; `functions/` jadi serverless,
-# `lib/` di-bundle ke Functions (tidak ikut disajikan sebagai aset statis).
+# Konfigurasi Cloudflare Worker (Workers + Static Assets).
+# - `public/` disajikan sebagai aset statis lewat binding ASSETS.
+# - `worker/index.js` menangani rute non-aset (POST /api/audit-lead, redirect /).
+# - `lib/` di-bundle ke Worker.
+# Deploy: `npx wrangler deploy` (perintah inilah yang dipakai Workers Builds).
 
 name = "custompedia-connect"
+main = "worker/index.js"
 compatibility_date = "2026-06-01"
-pages_build_output_dir = "public"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
 
 # KV untuk rate limit per-IP (§7). NONAKTIF sampai namespace dibuat.
 # Kode fail-open bila binding RATE_LIMIT tidak ada (lib/ratelimit.js), jadi
@@ -17,5 +23,5 @@ pages_build_output_dir = "public"
 # id = "REPLACE_WITH_KV_NAMESPACE_ID"
 
 # Catatan: SECRET (NOTION_TOKEN, RESEND_API_KEY, dll.) JANGAN ditaruh di sini.
-# Lokal: pakai file .dev.vars. Produksi: set di dashboard Pages > Settings >
-# Environment variables (tandai sebagai "Encrypt").
+# Lokal: pakai file .dev.vars. Produksi: set di dashboard Worker > Settings >
+# Variables and Secrets (tandai sebagai "Encrypt"), atau `wrangler secret put`.
