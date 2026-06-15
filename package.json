@@ -1,0 +1,15 @@
+{
+  "name": "custompedia-connect",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing 'Audit Socmed Gratis' + endpoint lead (Cloudflare Pages + Functions).",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "deploy": "wrangler pages deploy public"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  }
+}

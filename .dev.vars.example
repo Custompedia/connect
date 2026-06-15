@@ -1,0 +1,23 @@
+# Salin file ini menjadi `.dev.vars` untuk pengembangan lokal (jangan di-commit).
+# Di produksi, isi nilai-nilai ini di Cloudflare Pages > Settings > Environment
+# variables (tandai sebagai Encrypt untuk yang bersifat secret).
+
+# --- Notion (penyimpanan lead) ---
+NOTION_TOKEN=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NOTION_AUDIT_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# --- Notifikasi email (Resend) ---
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
+LEADS_NOTIFY_EMAIL=tim@custompedia.id
+LEADS_FROM_EMAIL=Custompedia Leads <leads@custompedia.id>
+
+# --- Opsional: channel notifikasi lain (pluggable) ---
+# SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
+# LEADS_WEBHOOK_URL=https://contoh.com/intake
+
+# --- Opsional: Cloudflare Turnstile (anti-bot) ---
+# TURNSTILE_SITE_KEY=0x4AAAAAAA...
+# TURNSTILE_SECRET=0x4AAAAAAA...
+
+# --- Opsional: tuning ---
+# RATE_LIMIT_MAX=5

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Audit Akun Socmed Gratis — Custompedia</title>
+    <meta
+      name="description"
+      content="Analisis akun socmed bisnismu, gratis. Isi data singkat, tim Custompedia kirim hasilnya langsung ke WhatsApp."
+    />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#fbf7ef" />
+    <link rel="stylesheet" href="/audit/styles.css" />
+  </head>
+  <body class="audit-page">
+    <main class="audit-wrap">
+      <!-- HERO -->
+      <header class="audit-hero">
+        <p class="audit-eyebrow">Analisis Akun Socmed — Gratis</p>
+        <h1 class="audit-headline">Akun socmed bisnismu, kami analisis gratis.</h1>
+        <p class="audit-sub">
+          Isi data di bawah. Tim Custompedia melihat akunmu dan mengirim hasilnya langsung ke
+          WhatsApp — apa yang sudah jalan, dan apa yang bisa dinaikkan.
+        </p>
+      </header>
+
+      <!-- FORM -->
+      <section class="audit-card" id="form-card" aria-labelledby="form-title">
+        <h2 id="form-title" class="sr-only" hidden>Formulir permintaan analisis</h2>
+
+        <div class="form-error-top" id="form-error-top" role="alert"></div>
+
+        <form id="audit-form" novalidate>
+          <!-- Username Instagram -->
+          <div class="field" id="field-ig">
+            <label for="ig_username">
+              Username Instagram bisnis<span class="req" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="ig_username"
+              name="ig_username"
+              placeholder="@namabisnismu"
+              autocomplete="off"
+              autocapitalize="none"
+              autocorrect="off"
+              spellcheck="false"
+              maxlength="40"
+              required
+              aria-required="true"
+              aria-describedby="err-ig"
+            />
+            <span class="error-msg" id="err-ig"></span>
+          </div>
+
+          <!-- Bidang usaha -->
+          <div class="field" id="field-bidang">
+            <label for="bidang">Bidang usaha<span class="req" aria-hidden="true">*</span></label>
+            <select id="bidang" name="bidang" required aria-required="true" aria-describedby="err-bidang">
+              <option value="" disabled selected>Pilih bidang usaha</option>
+              <option value="F&amp;B">F&amp;B</option>
+              <option value="Fashion &amp; Retail">Fashion &amp; Retail</option>
+              <option value="Jasa &amp; Profesional">Jasa &amp; Profesional</option>
+              <option value="Retail &amp; E-commerce">Retail &amp; E-commerce</option>
+              <option value="Manufaktur">Manufaktur</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+            <span class="error-msg" id="err-bidang"></span>
+          </div>
+
+          <!-- Nomor WhatsApp -->
+          <div class="field" id="field-wa">
+            <label for="whatsapp">Nomor WhatsApp<span class="req" aria-hidden="true">*</span></label>
+            <input
+              type="tel"
+              id="whatsapp"
+              name="whatsapp"
+              placeholder="Contoh: 62812xxxxxxxx"
+              inputmode="numeric"
+              autocomplete="tel"
+              maxlength="20"
+              required
+              aria-required="true"
+              aria-describedby="err-wa"
+            />
+            <span class="error-msg" id="err-wa"></span>
+          </div>
+
+          <!-- Tantangan (opsional) -->
+          <div class="field" id="field-challenge">
+            <label for="challenge">
+              Tantangan terbesar di socmed bisnismu
+              <span class="hint">(opsional)</span>
+            </label>
+            <textarea
+              id="challenge"
+              name="challenge"
+              maxlength="500"
+              rows="3"
+              placeholder="Misal: susah konsisten posting, engagement turun, belum ada penjualan dari socmed."
+              aria-describedby="count-challenge"
+            ></textarea>
+            <span class="char-count" id="count-challenge" aria-live="polite">0/500</span>
+          </div>
+
+          <!-- Consent -->
+          <div class="field field-consent" id="field-consent">
+            <input type="checkbox" id="consent" name="consent" required aria-required="true" aria-describedby="err-consent" />
+            <label for="consent">
+              Saya bersedia dihubungi Custompedia via WhatsApp terkait hasil analisis ini.
+              <span class="error-msg" id="err-consent"></span>
+            </label>
+          </div>
+
+          <!-- Honeypot anti-bot: harus tetap kosong. Disembunyikan dari user. -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="company_url">Company URL (jangan diisi)</label>
+            <input
+              type="text"
+              id="company_url"
+              name="company_url"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">Minta analisis gratis</button>
+          <p class="form-note">Gratis. Tanpa biaya, tanpa komitmen.</p>
+        </form>
+      </section>
+
+      <!-- SUKSES (disembunyikan sampai submit berhasil) -->
+      <section class="audit-success" id="success-panel" tabindex="-1" hidden aria-live="polite">
+        <div class="check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+        <h2>Diterima.</h2>
+        <p>
+          Tim Custompedia akan menganalisis akunmu dan menghubungi via WhatsApp dalam 2-3 hari
+          kerja.
+        </p>
+      </section>
+
+      <footer class="audit-footer">
+        <p>Custompedia — analisis socmed untuk bisnis.</p>
+      </footer>
+    </main>
+
+    <script src="/audit/app.js" defer></script>
+  </body>
+</html>
